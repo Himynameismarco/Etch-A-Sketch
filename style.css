@@ -1,0 +1,29 @@
+.container {
+  width: auto;
+  flex-direction: row;
+  display: none;
+}
+
+div .white {
+  display: flex;
+  flex-direction: column;
+  width: 1vw;
+  height: 1vh;
+  background-color: whitesmoke;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  text-align: center;
+}
+
+div .black {
+  display: flex;
+  flex-direction: column;
+  width: 1vw;
+  height: 1vh;
+  background-color: #363636;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #363636;
+  text-align: center;
+}
