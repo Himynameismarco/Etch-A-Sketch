@@ -4,7 +4,7 @@
   display: none;
 }
 
-div .white {
+div .transparent {
   display: flex;
   flex-direction: column;
   width: 1vw;
@@ -16,7 +16,7 @@ div .white {
   text-align: center;
 }
 
-div .black {
+div .purple {
   display: flex;
   flex-direction: column;
   width: 1vw;

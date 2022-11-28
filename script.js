@@ -1,6 +1,6 @@
 const startButton = document.getElementById('StartButton');
 startButton.addEventListener('click', pressCentralButton);
-
+const container = document.querySelector('.container');
 let gameStarted = false;
 
 function pressCentralButton(e) {
@@ -12,7 +12,7 @@ function pressCentralButton(e) {
     if (typeof size === 'number' && size > 0 && size <= 100) {
       gameStarted = true;
       console.log("Game started!");
-      drawBoard(size);
+      createDrawBoard(size);
       toggleDrawBoard(e);
     } else {
       alert("Invalid input. Please type a value between 1 and 100. ")
@@ -28,19 +28,16 @@ function toggleDrawBoard(e) {
     container.style.display = 'flex';
     e.target.innerText = 'Hide Board';
   }
+}
 
-  }
-
-const container = document.querySelector('.container');
-
-function drawBoard(size) {
+function createDrawBoard(size) {
 
   for (let i = 1; i < size; i++) {
     const row = document.createElement('div');
     container.appendChild(row);
     for (let col = 1; col < size; col++) {
       const div = document.createElement('div');
-      div.classList.add('white');
+      div.classList.add('transparent');
       //div.textContent = i.toString();
       div.addEventListener('mouseover', changeColor);
       row.appendChild(div);
@@ -50,11 +47,11 @@ function drawBoard(size) {
 }
 
 function changeColor(e) {
-  if (e.target.classList.toString() === 'white') {
-    e.target.classList.remove('white');
-    e.target.classList.add('black');
+  if (e.target.classList.toString() === 'transparent') {
+    e.target.classList.remove('transparent');
+    e.target.classList.add('purple');
   } else {
-    e.target.classList.remove('black');
-    e.target.classList.add('white');
+    e.target.classList.remove('purple');
+    e.target.classList.add('transparent');
   }
 }
