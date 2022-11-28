@@ -1,28 +1,35 @@
 const startButton = document.getElementById('StartButton');
-startButton.addEventListener('click', pressStartGameButton);
+startButton.addEventListener('click', pressCentralButton);
 
 let gameStarted = false;
 
-function pressStartGameButton(e) {
+function pressCentralButton(e) {
   if (gameStarted) {
     console.log("display of container: " + container.style.display.toString());
-    if (container.style.display.toString() === 'flex') {
-      container.style.display = 'none';
-      e.target.innerText = 'Show Board';
-    } else {
-      container.style.display = 'flex';
-    }
+    toggleDrawBoard(e);
   } else {
-    let size = parseInt(prompt("Which size do you want your game to be?"));
-    if (typeof size === 'number') {
+    let size = parseInt(prompt("Which size do you want your draw board to be?"));
+    if (typeof size === 'number' && size > 0 && size <= 100) {
       gameStarted = true;
-      console.log("Game started!")
+      console.log("Game started!");
       drawBoard(size);
-      container.style.display = 'flex';
-      e.target.innerText = 'Hide Board';
+      toggleDrawBoard(e);
+    } else {
+      alert("Invalid input. Please type a value between 1 and 100. ")
     }
   }
 }
+
+function toggleDrawBoard(e) {
+  if (container.style.display.toString() === 'flex') {
+    container.style.display = 'none';
+    e.target.innerText = 'Show Board';
+  } else {
+    container.style.display = 'flex';
+    e.target.innerText = 'Hide Board';
+  }
+
+  }
 
 const container = document.querySelector('.container');
 
